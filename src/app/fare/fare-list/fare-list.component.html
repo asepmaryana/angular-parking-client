@@ -1,0 +1,60 @@
+<app-header></app-header>
+<div class="wrapper">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="page-title-box">
+            <div class="btn-group float-right">
+                <ol class="breadcrumb hide-phone p-0 m-0">
+                    <li class="breadcrumb-item">Home</li>
+                    <li class="breadcrumb-item active">Tarif</li>
+                </ol>
+            </div>
+            <h4 class="page-title">Tarif</h4>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="card-box">
+          <div class="button-list mb-1">
+            <!-- <a [routerLink]="['/fare/add']" class="btn btn-primary"><i class="fa fa-plus"></i> Tambah</a> -->
+            <button class="btn btn-success" (click)="getFares()"><i class="fa fa-refresh"></i> Refresh</button>
+          </div>
+          <div class="col-sm-12" *ngIf="fares.length == 0"><div class="alert alert-info">Belum ada data.</div></div>
+          <table class="table table-hover table-centered m-0" *ngIf="fares.length > 0">
+            <thead>
+              <tr>
+                <th>No</th>
+                <th>Jenis Kendaraan</th>
+                <th>Tarif 1 Jam</th>
+                <th>Tarif > 1 Jam</th>
+                <th>Max Bayar / Hari</th>
+                <th>Harian</th>
+                <th>Kapasitas</th>
+                <th>#</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let r of fares; index as i">
+                <td>{{i+1}}</td>
+                <td>{{r.vehicle}}</td>
+                <td>{{r.one_hour | number}}</td>
+                <td>{{r.more_one | number}}</td>
+                <td>{{r.max_pay | number}}</td>
+                <td>{{r.daily | number}}</td>
+                <td>{{r.capacity}}</td>
+                <td>
+                  <button (click)="editFare(r.id)" class="btn btn-sm btn-custom"><i class="icon-pencil"></i> Edit</button>
+                  <!-- <button (click)="deleteFare(r.id)" class="btn btn-sm btn-danger"><i class="icon-trash"></i> Delete</button> -->
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

@@ -1,0 +1,93 @@
+<header id="topnav">
+  <div class="topbar-main">
+      <div class="container-fluid">
+          <!-- Logo container-->
+          <div class="logo">
+            <img src="assets/images/ptba.jpg" alt="" height="32"/>
+            &nbsp; APLIKASI PARKIR BUKIT ASAM
+          </div>
+          <!-- End Logo container-->
+
+          <div class="menu-extras topbar-custom">
+              <ul class="list-unstyled topbar-right-menu float-right mb-0">
+                  <li class="menu-item">
+                      <!-- Mobile menu toggle-->
+                      <a class="navbar-toggle nav-link">
+                          <div class="lines">
+                              <span></span>
+                              <span></span>
+                              <span></span>
+                          </div>
+                      </a>
+                      <!-- End mobile menu toggle-->
+                  </li>
+                  <li class="dropdown notification-list">
+                      <a class="nav-link dropdown-toggle waves-effect nav-user" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
+                          <img src="assets/images/users/avatar-1.jpg" alt="user" class="rounded-circle"/>
+                          <span class="ml-1 pro-user-name">{{currentUser.firstname}} <i class="mdi mdi-chevron-down"></i> </span>
+                      </a>
+                      <div class="dropdown-menu dropdown-menu-right dropdown-menu-animated profile-dropdown">
+                          <!-- item-->
+                          <a href="javascript:void(0);" class="dropdown-item notify-item">
+                              <i class="fi-head"></i> <span>My Account</span>
+                          </a>
+
+                          <!-- item-->
+                          <a href="javascript:void(0);" class="dropdown-item notify-item">
+                              <i class="fi-cog"></i> <span>Settings</span>
+                          </a>
+
+                          <!-- item-->
+                          <a (click)="logout()" class="dropdown-item notify-item">
+                              <i class="fi-power"></i> <span>Logout</span>
+                          </a>
+                      </div>
+                  </li>
+              </ul>
+          </div>
+          <!-- end menu-extras -->
+          <div class="clearfix"></div>
+      </div>
+      <!-- end container -->
+  </div>
+  <!-- end topbar-main -->
+
+  <div class="navbar-custom">
+      <div class="container-fluid">
+          <div id="navigation">
+              <!-- Navigation Menu-->
+              <ul class="navigation-menu">
+                  <li class="has-submenu">
+                      <a [routerLink]="['/']"><i class="icon-speedometer"></i>Dashboard</a>
+                  </li>
+                  <li class="has-submenu" *ngIf="currentUser.role == 'PETUGAS'">
+                    <a [routerLink]="['/checkin']"><i class="icon-login"></i>Check In</a>
+                  </li>
+                  <li class="has-submenu" *ngIf="currentUser.role == 'PETUGAS'">
+                    <a [routerLink]="['/checkout']"><i class="icon-logout"></i>Check Out</a>
+                  </li>
+                  <li class="has-submenu" *ngIf="currentUser.role == 'PETUGAS'">
+                    <a [routerLink]="['/check']"><i class="icon-check"></i>Check Kendaraan</a>
+                  </li>
+                  <li class="has-submenu" *ngIf="currentUser.role == 'ADMIN'">
+                      <a href="#"><i class="icon-layers"></i>Manajemen</a>
+                      <ul class="submenu">
+                          <li><a [routerLink]="['/vehicle']">Kendaraan</a></li>
+                          <li><a [routerLink]="['/fare']">Tarif</a></li>
+                          <li><a [routerLink]="['/user']">Pengguna</a></li>
+                      </ul>
+                  </li>
+                  <li class="has-submenu" *ngIf="currentUser.role == 'ADMIN'">
+                    <a href="#"><i class="icon-docs"></i>Laporan</a>
+                    <ul class="submenu">
+                        <li><a [routerLink]="['/daily']">Harian</a></li>
+                        <li><a [routerLink]="['/recap']">Rekapitulasi</a></li>
+                    </ul>
+                  </li>
+              </ul>
+              <!-- End navigation menu -->
+
+          </div>
+      </div>
+  </div>
+</header>

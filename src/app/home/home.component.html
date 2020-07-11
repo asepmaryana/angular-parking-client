@@ -1,0 +1,59 @@
+<app-header></app-header>
+<div class="wrapper">
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-12">
+          <div class="page-title-box">
+              <div class="btn-group float-right">
+                  <ol class="breadcrumb hide-phone p-0 m-0">
+                      <li class="breadcrumb-item">Home</li>
+                      <li class="breadcrumb-item active">Dashboard</li>
+                  </ol>
+              </div>
+              <h4 class="page-title">Home</h4>
+          </div>
+      </div>
+  </div>
+      <div class="row">
+          <div class="col-12">
+              <div class="card-box">
+                  <h4 class="header-title mb-4">Statistik Status Kendaraan</h4>
+                  <div class="text-center mt-4 mb-4">
+                    <div class="row">
+                      <div class="col-xs-3 col-sm-3">
+                        <div class="card-box widget-flat border-secondary bg-secondary text-white">
+                          <i class="fi-tag"></i>
+                          <h3 class="m-b-10">{{statistik.bike_in}}</h3>
+                          <p class="text-uppercase m-b-5 font-13 font-600">Motor Masuk</p>
+                        </div>
+                      </div>
+                      <div class="col-xs-3 col-sm-3">
+                        <div class="card-box widget-flat border-primary bg-primary text-white">
+                          <i class="fi-help"></i>
+                          <h3 class="m-b-10">{{statistik.bike_out}}</h3>
+                          <p class="text-uppercase m-b-5 font-13 font-600">Motor Keluar</p>
+                        </div>
+                      </div>
+                      <div class="col-xs-3 col-sm-3">
+                        <div class="card-box widget-flat border-danger bg-warning text-white">
+                          <i class="fi-delete"></i>
+                          <h3 class="m-b-10">{{statistik.car_in}}</h3>
+                          <p class="text-uppercase m-b-5 font-13 font-600">Mobil Masuk</p>
+                        </div>
+                      </div>
+                      <div class="col-xs-3 col-sm-3">
+                        <div class="card-box widget-flat border-success bg-success text-white">
+                          <i class="fi-check"></i>
+                          <h3 class="m-b-10">{{statistik.car_out}}</h3>
+                          <p class="text-uppercase m-b-5 font-13 font-600">Mobil Keluar</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+<app-footer></app-footer>

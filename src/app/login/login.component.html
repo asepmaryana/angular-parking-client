@@ -1,0 +1,66 @@
+<div class="accountbg" style="background: url('assets/images/ptba-cover.jpg');"></div>
+<div class="wrapper-page account-page-full">
+  <div class="card">
+    <div class="card-block">
+      <div class="account-box">
+        <div class="card-box p-5">
+          <h4 class="text-uppercase text-center">
+            <a class="text-success">
+              <span><img src="assets/images/ptba.jpg" height="64"/></span>
+            </a>
+            <br/>
+            APLIKASI PARKIR
+          </h4>
+
+          <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+            <div class="form-group row text-center" *ngIf="errors.message">
+              <div class="col-12">
+                  <div class="alert alert-danger" role="alert">
+                      {{ errors.message }}
+                  </div>
+              </div>
+            </div>
+            <div class="form-group m-b-20 row">
+              <div class="col-12">
+                  <label for="emailaddress">Username</label>
+                  <input class="form-control" type="text" placeholder="" name="username" [(ngModel)]="form.username" #username="ngModel"/>
+                  <div class="alert alert-danger" role="alert" *ngIf="f.submitted && errors.username">
+                    <div>{{ errors.username }}</div>
+                  </div>
+              </div>
+            </div>
+            <div class="form-group row m-b-20">
+                <div class="col-12">
+                    <!-- <a href="#/welcome/reset" class="text-muted pull-right"><small>Lupa password ?</small></a> -->
+                    <label for="password">Password</label>
+                    <input class="form-control" type="password" name="password" [(ngModel)]="form.password" placeholder="" #password="ngModel"/>
+                    <div class="alert alert-danger" role="alert" *ngIf="f.submitted && errors.password">
+                      <div>{{ errors.password }}</div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group row m-b-20">
+                <div class="col-12">
+                    <div class="checkbox checkbox-custom">
+                        <input id="remember" type="checkbox"/>
+                        <label for="remember">
+                            Remember me
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group row text-center m-t-10">
+                <div class="col-12">
+                    <button class="btn btn-block btn-custom waves-effect waves-light" type="submit" [disabled]="!f.form.valid">Sign In</button>
+                </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="m-t-40 text-center">
+    <p class="account-copyright">2020 © PT Bukit Asam Tbk</p>
+  </div>
+</div>
+

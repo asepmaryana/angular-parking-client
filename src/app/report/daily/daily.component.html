@@ -1,0 +1,89 @@
+<app-header></app-header>
+<div class="wrapper">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-12">
+          <div class="page-title-box">
+              <div class="btn-group float-right">
+                  <ol class="breadcrumb hide-phone p-0 m-0">
+                      <li class="breadcrumb-item">Home</li>
+                      <li class="breadcrumb-item active">Laporan Harian</li>
+                  </ol>
+              </div>
+              <h4 class="page-title">Laporan Harian</h4>
+          </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-12">
+        <div class="card-box">
+          <h4 class="header-title">Laporan Transaksi Harian </h4>
+          <div class="text-center mt-4 mb-4">
+            <div class="row">
+                        <div class="col-sm-12">
+                            <form name="formCheckout" class="form-horizontal" role="form">
+                                <div class="form-group row">
+                                    <label class="col-2 col-form-label">Jenis Kendaraan :</label>
+                                    <div class="col-3">
+                                        <select class="form-control" [(ngModel)]="vehicle_id" name="vehicle_id">
+                                            <option value="_">- Semua -</option>
+                                            <option *ngFor="let v of vehicles" value="{{v.id}}">{{v.name}}</option>
+                                        </select>
+                                    </div>
+                                    <label class="col-2 col-form-label">Tanggal : </label>
+                                    <div class="col-2">
+                                        <input type="text" #dd [(ngModel)]="date" class="form-control" placeholder="" id="tanggal" name="date"/>
+                                    </div>
+                                    <div class="col-1">
+                                        <button (click)="getReport()" class="btn btn-primary" type="button"> <i class="fa fa-eye"></i> View</button>
+                                    </div>
+                                    <div class="col-1">
+                                        <button (click)="getExport()" class="btn btn-primary" type="button"> <i class="fa fa-excel"></i> Export</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-sm-12" [hidden]="rows.length > 0"><div class="alert alert-info">Belum ada data.</div></div>
+                        <div class="col-sm-12" [hidden]="rows.length == 0">
+                            <div class="card-box">
+                                <div class="text-center">
+                                    <h4 class="header-title">LAPORAN TRANSAKSI HARIAN</h4>
+                                </div>
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Plat Nomor</th>
+                                            <th>Jenis</th>
+                                            <th>Check In</th>
+                                            <th>Check Out</th>
+                                            <th>Tarif</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let c of rows; index as i">
+                                            <td>{{ i + 1 }}</td>
+                                            <td>{{ c.plat_number }}</td>
+                                            <td>{{ c.vehicle }}</td>
+                                            <td>{{ c.checked_in | date:'dd-MM-yyy HH:mm:ss' }}</td>
+                                            <td>{{ c.checked_out | date:'dd-MM-yyy HH:mm:ss' }}</td>
+                                            <td>Rp. {{ c.amount | number }}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <hr/>
+                            </div>
+                        </div>
+                    </div>
+          </div>
+        </div>
+        </div>
+
+    </div>
+
+  </div>
+</div>
+<app-footer></app-footer>

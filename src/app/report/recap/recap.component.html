@@ -1,0 +1,98 @@
+<app-header></app-header>
+<div class="wrapper">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-12">
+          <div class="page-title-box">
+              <div class="btn-group float-right">
+                  <ol class="breadcrumb hide-phone p-0 m-0">
+                      <li class="breadcrumb-item">Home</li>
+                      <li class="breadcrumb-item active">Laporan Rekapitulasi</li>
+                  </ol>
+              </div>
+              <h4 class="page-title">Laporan Rekapitulasi</h4>
+          </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <div class="card-box">
+          <h4 class="header-title">Laporan Rekapitulasi Transaksi </h4>
+          <div class="text-center mt-4 mb-4">
+            <div class="row">
+              <div class="col-sm-12">
+                <form class="form-horizontal" role="form">
+                  <div class="form-group row">
+                    <label class="col-2 col-form-label">Tanggal Awal : </label>
+                    <div class="col-2">
+                      <input type="text" #sd [(ngModel)]="from" class="form-control" id="from" name="from"/>
+                    </div>
+                    <label class="col-2 col-form-label">Tanggal Akhir : </label>
+                    <div class="col-2">
+                      <input type="text" #ed [(ngModel)]="to" class="form-control" id="to" name="to"/>
+                    </div>
+                    <div class="col-1">
+                      <button (click)="getReport()" class="btn btn-primary" type="button"> <i class="fa fa-eye"></i> View</button>
+                    </div>
+                    <div class="col-1">
+                      <button (click)="getExport()" class="btn btn-primary" type="button"> <i class="fa fa-excel"></i> Export</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-12" [hidden]="result.rows.length > 0"><div class="alert alert-info">Belum ada data.</div></div>
+              <div class="col-sm-12" [hidden]="result.rows.length == 0">
+                <div class="card-box">
+                  <div class="text-center">
+                    <h4 class="header-title">LAPORAN TRANSAKSI PER JENIS KENDARAAN</h4>
+                  </div>
+                  <table class="table table-bordered">
+                    <thead>
+                      <tr>
+                        <th rowspan="2">#</th>
+                        <th rowspan="2">Tanggal</th>
+                        <th colspan="2">Motor</th>
+                        <th colspan="2">Mobil</th>
+                        <th rowspan="2">Jumlah</th>
+                      </tr>
+                      <tr>
+                        <th>Jml Trx</th>
+                        <th>Nominal Trx</th>
+                        <th>Jml Trx</th>
+                        <th>Nominal Trx</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let c of result.rows; index as i">
+                        <td>{{ i + 1 }}</td>
+                        <td>{{ c.trx_date | date:'dd-MM-yyy' }}</td>
+                        <td>{{ c.bike_checkout_count | number }}</td>
+                        <td>Rp. {{ c.bike_trx_sum | number }}</td>
+                        <td>{{ c.car_checkout_count | number }}</td>
+                        <td>Rp. {{ c.car_trx_sum | number }}</td>
+                        <td>Rp. {{ c.trx_sum | number }}</td>
+                      </tr>
+                    </tbody>
+                    <tfoot>
+                      <tr>
+                        <td colspan="2" class="text-bold">TOTAL</td>
+                        <td class="text-bold">{{result.bike_count | number}}</td>
+                        <td class="text-bold">Rp. {{result.bike_total | number}}</td>
+                        <td class="text-bold">{{result.car_count | number}}</td>
+                        <td class="text-bold">Rp. {{result.car_total | number}}</td>
+                        <td class="text-bold">Rp. {{result.total | number}}</td>
+                      </tr>
+                    </tfoot>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>
