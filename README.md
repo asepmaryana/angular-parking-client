@@ -4,7 +4,7 @@ Aplikasi client untuk parkir berbasis angular versi 10.0.0
 
 ## Install library NodeJS
 
-Jalankan `node install`
+Jalankan `npm install`
 
 ## Setting environment variable
 
@@ -21,11 +21,19 @@ export const environment = {
 
 ## Running aplikasi
 
-Jalankan `ng serve` pada terminal console (command prompt).
+Jalankan `ng serve --open` pada terminal console (command prompt) untuk menjalankan aplikasi dan membuka layar browser otomatis.
+
 
 ## Build aplikasi
 
 Jalankan `ng build` untuk membuild project. Hasil build project akan disimpan pada folder `dist/`. Gunakan flag `--prod` untuk build production.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Account demo
+- level admin :
+username: admin
+password: admin
+
+- level petugas :
+username: user
+password: petugas
 
