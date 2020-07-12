@@ -2,38 +2,31 @@
 
 Aplikasi client untuk parkir berbasis angular versi 10.0.0
 
-## Install library NodeJS
+## Langkah Menjalankan aplikasi
+Jalankan perintah-perintah berikut pada command prompt :
 
-Jalankan `npm install`
+1. cloning repositori proyek dari git :
+`git clone https://github.com/asepmaryana/angular-parking-client.git`
 
-## Setting environment variable
+2. masuk ke direktori proyek :
+`cd angular-parking-client`
 
-edit file "environments/environment.ts", sesuaikan parameter "apiUrl" pada file tersebut.
-misalnya :
+3. install library nodejs
+`npm install`
 
-export const environment = {
-  production: false,
-  apiUrl: 'http://localhost:3000',
-  tokenKey: 'token',
-  userKey: 'user',
-  tokenHeaderKey: 'Authorization'
-};
+4. jalankan aplikasi angular 
+`ng serve --open`
 
-## Running aplikasi
+Bila ingin melakukan build production :
+`ng build --prod`
+hasil build akan disimpan pada direktori `dist/`
 
-Jalankan `ng serve --open` pada terminal console (command prompt) untuk menjalankan aplikasi dan membuka layar browser otomatis.
-
-
-## Build aplikasi
-
-Jalankan `ng build` untuk membuild project. Hasil build project akan disimpan pada folder `dist/`. Gunakan flag `--prod` untuk build production.
-
-## Account demo
+### Account demo
 - level admin :
-username: admin
-password: admin
+username: `admin`
+password: `admin`
 
 - level petugas :
-username: user
-password: petugas
+username: `user`
+password: `petugas`
 
