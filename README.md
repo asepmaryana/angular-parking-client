@@ -28,5 +28,5 @@ password: `admin`
 
 - level petugas :
 username: `user`
-password: `petugas`
+password: `user`
 
