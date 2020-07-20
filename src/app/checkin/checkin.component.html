@@ -1,0 +1,82 @@
+<app-header></app-header>
+<div class="wrapper">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="page-title-box">
+            <div class="btn-group float-right">
+                <ol class="breadcrumb hide-phone p-0 m-0">
+                    <li class="breadcrumb-item">Home</li>
+                    <li class="breadcrumb-item active">Check In</li>
+                </ol>
+            </div>
+            <h4 class="page-title">Check In</h4>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-4">
+        <div class="card-box">
+          <h4 class="header-title">Form Check In</h4>
+          <div class="text-center mt-4 mb-4">
+            <div class="row">
+              <div class="col-sm-12">
+                <form name="formCheckin" class="form-horizontal" role="form">
+                  <div class="form-group row">
+                    <label class="col-3 col-form-label">Jenis</label>
+                    <div class="col-3"><input name="vehicle_id" type="radio" value="1" [(ngModel)]="data.vehicle_id"/> Mobil</div>
+                    <div class="col-3"><input name="vehicle_id" type="radio" value="2" [(ngModel)]="data.vehicle_id"/> Motor</div>
+                  </div>
+                  <div class="form-group row">
+                    <label class="col-3 col-form-label">Plat Nomor</label>
+                    <div class="col-5">
+                      <input name="plat_number" type="text" [(ngModel)]="data.plat_number" class="form-control"/>
+                    </div>
+                    <div class="col-4">
+                      <button (click)="onCheckIn();" class="btn btn-primary" type="button"> <i class="fa fa-check"></i> Check In</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-8">
+        <div class="card-box">
+          <h4 class="header-title">Data Check In</h4>
+          <form class="form-horizontal" role="form">
+            <div class="form-group row">
+              <div class="col-2"><input name="vehicle_id" type="radio" value="1" [(ngModel)]="crit.vehicle_id"/> Mobil</div>
+              <div class="col-2"><input name="vehicle_id" type="radio" value="2" [(ngModel)]="crit.vehicle_id"/> Motor</div>
+              <div class="col-2"><input name="date" type="text" class="form-control" [(ngModel)]="crit.date" placeholder="Tanggal" id="tanggal" #ddate/></div>
+              <div class="col-2"><button type="button" class="btn btn-primary" (click)="getCheckin(page)"><i class="icon-magnifier"></i> Search</button></div>
+            </div>
+          </form>
+          <div class="alert alert-info" *ngIf="rows.length == 0">Data belum ada.</div>
+          <div class="table-responsive" *ngIf="rows.length > 0">
+            <table class="table table-hover table-centered m-0">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Nomor Plat</th>
+                  <th>Tgl & Jam</th>
+                  <th>Jenis Kendaraan</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let c of rows; index as i">
+                  <td>{{i+1}}</td>
+                  <td>{{c.plat_number}}</td>
+                  <td>{{c.checked_in|date:'dd-MMM-yyyy HH:mm:ss'}}</td>
+                  <td>{{c.vehicle}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

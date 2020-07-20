@@ -17,7 +17,10 @@ import { UserListComponent } from './user/user-list/user-list.component';
 import { UserAddComponent } from './user/user-add/user-add.component';
 import { UserEditComponent } from './user/user-edit/user-edit.component';
 import { DailyComponent } from './report/daily/daily.component';
-import { RecapComponent } from './report/recap/recap.component'
+import { RecapComponent } from './report/recap/recap.component';
+import { CheckinComponent } from './checkin/checkin.component';
+import { CheckoutComponent } from './checkout/checkout.component';
+import { CheckComponent } from './check/check.component'
 
 @NgModule({
   declarations: [
@@ -34,7 +37,10 @@ import { RecapComponent } from './report/recap/recap.component'
     UserAddComponent,
     UserEditComponent,
     DailyComponent,
-    RecapComponent
+    RecapComponent,
+    CheckinComponent,
+    CheckoutComponent,
+    CheckComponent
   ],
   imports: [
     BrowserModule,

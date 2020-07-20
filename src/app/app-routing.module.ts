@@ -12,6 +12,9 @@ import { UserAddComponent } from './user/user-add/user-add.component';
 import { UserEditComponent } from './user/user-edit/user-edit.component';
 import { DailyComponent } from './report/daily/daily.component';
 import { RecapComponent } from './report/recap/recap.component';
+import { CheckinComponent } from './checkin/checkin.component';
+import { CheckoutComponent } from './checkout/checkout.component';
+import { CheckComponent } from './check/check.component';
 
 const routes: Routes = [
   {
@@ -23,6 +26,18 @@ const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent,
+  },
+  {
+    path: 'checkin',
+    component: CheckinComponent
+  },
+  {
+    path: 'checkout',
+    component: CheckoutComponent
+  },
+  {
+    path: 'check',
+    component: CheckComponent
   },
   {
     path: 'vehicle',
